@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="videocat.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:videocat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel>
+            <TextBlock x:Name="ApplicationTitle" Text="Videocat Viewer" Margin="25, 10, 0, 25"/>
+        
+            <!-- This content dialog asks the user to input a link to a video. -->
+            <ContentDialog x:Name="LinkDialog" 
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
+                 Grid.RowSpan="3"
+                 Title="Type URL or choose file:"
+                 PrimaryButtonText="Open"
+                 SecondaryButtonText="Cancel">
+                <TextBox x:Name="LinkTextBox" 
+                   AcceptsReturn="False"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Stretch"
+                   Margin="10"/>
+
+            </ContentDialog>
+
+        <TabView x:Name="StreamTabs" 
+                 RelativePanel.Below="ApplicationTitle" 
+                 Margin="5,5,5,5"
+                 HorizontalAlignment="Stretch" 
+                 VerticalAlignment="Stretch"
+                 AddTabButtonClick="StreamTabs_AddTabButtonClick"
+                 TabCloseRequested="StreamTabs_TabCloseRequested"
+                 >
+            <TabView.TabItems>
+                
+            </TabView.TabItems>
+        </TabView>
+
+    </RelativePanel>
+
+</Page>

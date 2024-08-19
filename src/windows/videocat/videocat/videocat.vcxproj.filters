@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml" />
+    <Page Include="MainPage.xaml" />
+    <Page Include="StreamPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="MainWindow.idl" />
+    <Midl Include="Framework\BindableBase.idl" />
+    <Midl Include="ViewModels\MainViewModel.idl" />
+    <Midl Include="ViewModels\StreamViewModel.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="..\..\..\common\frame_process.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\thirdparty\tinycthread\tinycthread.c">
+      <Filter>common\external\tinycthread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\videocat_utilities.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="KLVDataViewDataType.cpp" />
+    <ClCompile Include="Framework\BindableBase.cpp" />
+    <ClCompile Include="ViewModels\MainViewModel.cpp" />
+    <ClCompile Include="ViewModels\StreamViewModel.cpp" />
+    <ClCompile Include="Renderer\DirectXPanelBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="..\..\..\common\videocat_utilities.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="KLVDataViewDataType.h" />
+    <ClInclude Include="..\..\..\common\frame_process.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\BindableBase.h" />
+    <ClInclude Include="ViewModels\MainViewModel.h" />
+    <ClInclude Include="ViewModels\StreamViewModel.h" />
+    <ClInclude Include="Renderer\DirectXPanelBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{56dd326e-6ce0-436c-b201-7cd152775a71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{17d2b47e-24a6-4552-99e2-b93b07ce48be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\external">
+      <UniqueIdentifier>{70778864-049a-4bfc-a7e6-e21099e26b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\external\tinycthread">
+      <UniqueIdentifier>{7b2d355f-ae29-4cf5-97c1-0424d7e0be36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
+  </ItemGroup>
+</Project>
