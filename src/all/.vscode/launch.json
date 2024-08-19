@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Debug videocat",
+            "request": "launch",
+            "type": "cppvsdbg",
+            "cwd": "${workspaceFolder}/build",
+            "osx": {
+                "MIMode": "lldb",
+            },
+            "stopAtEntry": false,
+            "args": [
+                "-f",
+                "https://samples.ffmpeg.org/MPEG2/mpegts-klv/Night%20Flight%20IR.mpg"
+            ],
+            "program": "${workspaceFolder}/build/videocat",
+            "windows": {
+                "program": "${workspaceFolder}/build/videocat.exe"
+            },
+            "logging": {
+                "engineLogging": true, 
+                "traceResponse": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

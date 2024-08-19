@@ -1,0 +1,10 @@
+import "Framework/BindableBase.idl";
+
+namespace videocat
+{
+	[default_interface]
+	unsealed runtimeclass StreamViewModel : videocat.BindableBase
+	{
+		StreamViewModel();
+	}
+}

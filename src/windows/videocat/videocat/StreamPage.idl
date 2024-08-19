@@ -1,0 +1,44 @@
+namespace videocat
+{
+
+    [default_interface]
+    runtimeclass KLVDataViewDataType : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+    {
+        KLVDataViewDataType(
+            String callsign,
+            String tailNumber,
+            String designation,
+            String sensorLat,
+            String sensorLon,
+            String sensorTrueAlt,
+            String sensorHorzFov,
+            String sensorVertFov,
+            String targetLat,
+            String targetLon,
+            String targetElevation,
+            String timeStamp
+        );
+
+        String Callsign{ get; };
+        String TailNumber{ get; };
+        String Designation{ get; };
+        String SensorLat{ get; };
+        String SensorLon{ get; };
+        String SensorTrueAlt{ get; };
+        String SensorHorzFov{ get; };
+        String SensorVertFov{ get; };
+        String TargetLat{ get; };
+        String TargetLon{ get; };
+        String TargetElevation{ get; };
+        String TimeStamp{ get; };
+    }
+
+    [default_interface]
+    runtimeclass StreamPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        StreamPage();
+        Windows.Foundation.Collections.IVector<IInspectable> Data{ get; };
+        KLVDataViewDataType klvDataViewData;
+        Int32 MyProperty;
+    }
+}
