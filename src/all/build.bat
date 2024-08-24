@@ -30,7 +30,7 @@ set SOURCE_FILES=%COMMON_DIR%\thirdparty\tinycthread\*.c^
  %COMMON_DIR%\*.cpp^
  %SRCDIR%\main.cpp
 
-set DEBUG_LINK_LIBRARIES=avformat.lib avcodec.lib avutil.lib klvpd.lib ldsdbd.lib ole32.lib user32.lib Ws2_32.lib
+set DEBUG_LINK_LIBRARIES=libavformat.a libavcodec.a libavutil.a libswresample.a klvpd.lib ldsdbd.lib ole32.lib user32.lib Ws2_32.lib bcrypt.lib secur32.lib strmiids.lib mfplat.lib mf.lib mfuuid.lib 
 
  
 :: We use pushd popd to make sure 
@@ -43,4 +43,4 @@ cl /std:c++20 %DEBUG_COMPILER_FLAGS% %SOURCE_FILES% %DEBUG_LINK_LIBRARIES% /Fe:v
 popd
 
 @rem TODO: clean up unused dlls and libs from the dll dir.
-xcopy /d %DLL_DIR%\* %PROJECT_BUILD_DIR%
+@REM xcopy /d %DLL_DIR%\* %PROJECT_BUILD_DIR%

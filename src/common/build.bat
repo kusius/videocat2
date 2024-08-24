@@ -26,10 +26,9 @@ set INCLUDE=%INCLUDE%;^
 @REM Debug configuration
 set DEBUG_COMPILER_FLAGS=/nologo /Zi /EHsc /DWINDOWS /D_DEBUG /MDd
 
-set SOURCE_FILES=%COMMON_DIR%\thirdparty\tinycthread\*.c^
- %COMMON_DIR%\*.cpp^
+set SOURCE_FILES=%COMMON_DIR%\thirdparty\tinycthread\*.c %COMMON_DIR%\*.cpp
 
-set DEBUG_LINK_LIBRARIES=avformat.lib avcodec.lib avutil.lib klvpd.lib ldsdbd.lib ole32.lib user32.lib Ws2_32.lib
+set DEBUG_LINK_LIBRARIES=libavformat.a libavcodec.a libavutil.a libswresample.a klvpd.lib ldsdbd.lib ole32.lib user32.lib Ws2_32.lib bcrypt.lib secur32.lib strmiids.lib mfplat.lib mf.lib mfuuid.lib  
 
  
 :: We use pushd popd to make sure 
@@ -37,9 +36,9 @@ set DEBUG_LINK_LIBRARIES=avformat.lib avcodec.lib avutil.lib klvpd.lib ldsdbd.li
 mkdir %PROJECT_BUILD_DIR%
 pushd %PROJECT_BUILD_DIR%
 
-cl /std:c++20 %DEBUG_COMPILER_FLAGS% /MDd /link %DEBUG_LINK_LIBRARIES% /LD %SOURCE_FILES% 
-
+cl /c /std:c++20 %DEBUG_COMPILER_FLAGS% %SOURCE_FILES% %DEBUG_LINK_LIBRARIES%
+lib frame_process.obj tinycthread.obj videocat_utilities.obj /out:videocat.lib
 popd
 
-@rem TODO: clean up unused dlls and libs from the dll dir.
-xcopy /d %DLL_DIR%\* %PROJECT_BUILD_DIR%
+@REM @rem TODO: clean up unused dlls and libs from the dll dir.
+@REM xcopy /d %DLL_DIR%\* %PROJECT_BUILD_DIR%
